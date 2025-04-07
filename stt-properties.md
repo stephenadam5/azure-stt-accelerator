@@ -4,6 +4,28 @@
 
 This document describes the configurable `properties` for Azure STT Batch Transcription. These settings allow you to control output formatting, speaker separation, profanity filtering and more.
 
+## Example Transcription Payload
+
+```json
+{
+  "contentUrls": ["https://example.com/audio.wav"],
+  "properties": {
+    "diarizationEnabled": true,
+    "wordLevelTimestampsEnabled": true,
+    "displayFormWordLevelTimestampsEnabled": true,
+    "channels": [0, 1],
+    "punctuationMode": "DictatedAndAutomatic",
+    "profanityFilterMode": "Masked",
+    "profanityMarker": "*",
+    "wordLevelConfidence": true,
+    "timeToLive": "P1D",
+    "destinationContainerUrl": "https://yourstorage.blob.core.windows.net/container..."
+  },
+  "locale": "en-GB",
+  "displayName": "testtranscription"
+}
+```
+
 ## **diarizationEnabled**
 
 **What it does:** Tells the system to recognize different speakers.
