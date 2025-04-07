@@ -1,6 +1,5 @@
 import time
 import requests
-from tqdm import tqdm
 
 SPEECH_SUBSCRIPTION_KEY = "" 
 SPEECH_ENDPOINT = ""  
@@ -8,17 +7,12 @@ DESTINATION_CONTAINER_URL = (
     ""
 )
 
-
 TEST_WAV_URL = (
     ""
 )
 
 def create_transcription(audio_url, subscription_key, endpoint, destination_url):
-    """
-    Creates a transcription job via Azure Speech-to-Text REST API.
-    Returns a dict containing the job resource info, or None on error.
-    """
-    url = "https://swedencentral.api.cognitive.microsoft.com/speechtotext/v3.2/transcriptions"
+    url = "https://[REGION].api.cognitive.microsoft.com/speechtotext/v3.2/transcriptions"
     headers = {
         "Ocp-Apim-Subscription-Key": subscription_key,
         "Content-Type": "application/json"
@@ -36,7 +30,7 @@ def create_transcription(audio_url, subscription_key, endpoint, destination_url)
             "destinationContainerUrl": destination_url
         },
         "locale": "en-GB",
-        "displayName": "Debug Transcription"
+        "displayName": "transcriptiontest"
     }
 
     try:
